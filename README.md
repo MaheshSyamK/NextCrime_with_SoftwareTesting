@@ -1,75 +1,54 @@
-Chicago Crime Prediction Project
+# NextCrime_with_SoftwareTesting
 
-Overview
+Predicts next-day crime types in Chicago using NLP and time series models via a Streamlit app. Includes RNN, LSTM, and software testing extension.
+This project is a machine learning application designed to predict the **next day's crime category** in a given **community area** of Chicago. It combines **sequence modeling** and **natural language processing (NLP)** to make informed predictions based on historical data and textual descriptions of crimes.
 
-This project analyzes the Chicago Crime dataset from Kaggle to predict the next day's crime category based on a sequence of the last 5 days' crime categories. It includes data preprocessing, exploratory data analysis (EDA), visualization, and modeling using RNN, LSTM, GRU, Bidirectional LSTM, and Transformer models. The project is deployed using a Streamlit app.
 
-Directory Structure
 
-chicago_crime_prediction/
-├── data/
-│   └── Crimes_2001_to_Present.csv
-├── models/
-│   └── (saved models)
+## 📌 Features
+- Predicts crime type for the next day using:
+  - Last 5 days’ crime categories
+  - Arrest status
+  - Crime location descriptions
+  - Latest textual crime description (NLP)
+- Supports multiple deep learning models:
+  - RNN, LSTM, GRU, Bidirectional LSTM, Transformer
+- User-friendly web interface built with **Streamlit**
+- Trained on the official **Chicago Crimes Dataset**
+- Encodes categorical data using LabelEncoders & TF-IDF
+- Modular architecture with separate modules for preprocessing, prediction, and interface
+
+
+
+## 🧠 Technologies Used
+- Python
+- TensorFlow / Keras
+- NumPy / Pandas
+- Scikit-learn (for preprocessing)
+- Streamlit (for web interface)
+- TF-IDF (text vectorization)
+
+
+
+## 🧪 Software Testing (Extension)
+As part of the project extension, we plan to integrate **automated software testing** for both backend and interface components:
+
+- ✅ **Unit Testing** (using `unittest` or `pytest`) for:
+  - Preprocessing pipeline
+  - Prediction logic
+- ✅ **Integration Testing** for end-to-end workflow
+- ✅ **Streamlit interface testing** using tools like `pytest-streamlit` (optional)
+
+This will improve code reliability, reusability, and maintainability — making the project ready for real-world deployment or further enhancements.
+
+
+## 📂 Folder Structure
+.
+├── app.py                    
+├── models/                   
+├── data/                     
 ├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   ├── eda.py
-│   ├── models.py
-│   ├── train.py
-│   └── predict.py
-├── app.py
-├── main.py
+│   ├── data_preprocessing.py 
+│   └── predict.py            
 ├── requirements.txt
 └── README.md
-
-Setup
-
-
-
-
-
-Download Dataset: Download the Chicago Crime dataset from Kaggle and place it in the data/ folder as Crimes_2001_to_Present.csv.
-Install Dependencies: Run pip install -r requirements.txt.
-Run the Project: Execute python main.py to preprocess data, perform EDA, and train models.
-Run Streamlit App: Execute streamlit run app.py to launch the prediction interface.
-
-Usage
-
-
-
-
-
-EDA: Visualizations are saved in the output/ folder.
-
-
-
-Training: Models are trained and saved in the models/ folder.
-
-
-
-Prediction: Use the Streamlit app to input a sequence of 5 days' crime categories and select a model to predict the next day's crime category.
-
-Model Details
-
-
-
-
-
-Input: Sequence of 5 days' crime categories (THEFT, BATTERY, ASSAULT) for a community area.
-
-
-
-Output: Predicted crime category for the next day.
-
-
-
-Models: RNN, LSTM, GRU, Bidirectional LSTM, Transformer.
-
-
-
-Metrics: Accuracy, precision, recall, F1-score (printed during training).
-
-Requirements
-
-See requirements.txt for dependencies.
